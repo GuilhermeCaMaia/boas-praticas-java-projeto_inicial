@@ -2,7 +2,7 @@ package br.com.alura.service;
 
 import br.com.alura.client.ClientHttpConfiguration;
 import br.com.alura.model.AbrigoModel;
-import tools.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.net.http.HttpResponse;
@@ -17,18 +17,25 @@ public class AbrigoService {
         this.client = client;
     }
 
-
     public void listarAbrigo() throws IOException, InterruptedException {
         String uri = "http://localhost:8080/abrigos";
         HttpResponse<String> response = client.dispararRequisicaoGet(uri);
         String responseBody = response.body();
         AbrigoModel[] abrigos = new ObjectMapper().readValue(responseBody, AbrigoModel[].class);
         List<AbrigoModel> abrigosList = Arrays.stream(abrigos).toList();
+        if (abrigosList.isEmpty()){
+            System.out.println("Não há abrigos cadastrados");
+        } else {
+            mostraAbrigo(abrigosList);
+        }
+    }
+
+    private void mostraAbrigo(List<AbrigoModel> abrigos){
         System.out.println("Abrigos cadastrados:");
-        for (AbrigoModel abrigoModel : abrigosList) {
+        for (AbrigoModel abrigoModel : abrigos) {
             long id = abrigoModel.getId();
             String nome = abrigoModel.getNome();
-            System.out.println(id +" - " +nome);
+            System.out.println(id + " - " + nome);
         }
     }
 
