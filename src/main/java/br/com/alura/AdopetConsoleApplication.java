@@ -38,6 +38,9 @@ public class AdopetConsoleApplication {
                     case 4:
                         petService.importarPetsDoAbrigo();
                         break;
+                    case 5:
+                        System.out.println("Saindo...");
+                        return;
                     default:
                         System.out.println("NÚMERO INVÁLIDO!");
                         opcaoEscolhida = 0;
@@ -49,8 +52,4 @@ public class AdopetConsoleApplication {
             e.printStackTrace();
         }
     }
-
-
-
-
 }
