@@ -5,7 +5,7 @@ import br.com.alura.service.PetService;
 
 import java.io.IOException;
 
-public class ImportarPetsDoAbrigo implements Command{
+public class ImportarPetsDoAbrigoCommand implements Command{
 
     @Override
     public void execute() {

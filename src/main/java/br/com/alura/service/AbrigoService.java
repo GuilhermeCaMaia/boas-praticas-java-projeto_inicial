@@ -40,12 +40,13 @@ public class AbrigoService {
     }
 
     public void cadastrarAbrigo() throws IOException, InterruptedException {
+        Scanner leitor = new Scanner(System.in);
         System.out.println("Digite o nome do abrigo:");
-        String nome = new Scanner(System.in).nextLine();
+        String nome = leitor.nextLine();
         System.out.println("Digite o telefone do abrigo:");
-        String telefone = new Scanner(System.in).nextLine();
+        String telefone = leitor.nextLine();
         System.out.println("Digite o email do abrigo:");
-        String email = new Scanner(System.in).nextLine();
+        String email = leitor.nextLine();
 
         AbrigoModel abrigo = new AbrigoModel(nome, telefone, email);
 

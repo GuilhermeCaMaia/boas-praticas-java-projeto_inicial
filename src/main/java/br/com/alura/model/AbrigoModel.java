@@ -9,7 +9,6 @@ public class AbrigoModel {
     public AbrigoModel() {}
 
     public AbrigoModel(String nome, String telefone, String email) {
-        this.id = id;
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;

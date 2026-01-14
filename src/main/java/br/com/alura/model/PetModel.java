@@ -75,4 +75,11 @@ public class PetModel {
     public void setPeso(Float peso) {
         this.peso = peso;
     }
+
+    @Override
+    public String toString() {
+        return """
+                "id":%s,"tipo":%s,"nome":%s,"raca":%s,"idade":%s,"cor":%s,"peso":%s,
+                """.formatted(this.id, this.tipo, this.nome, this.raca, this.idade, this.cor, this.peso);
+    }
 }

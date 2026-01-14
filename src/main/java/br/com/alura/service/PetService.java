@@ -1,13 +1,8 @@
 package br.com.alura.service;
 
 import br.com.alura.client.ClientHttpConfiguration;
-import br.com.alura.model.AbrigoModel;
 import br.com.alura.model.PetModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -28,7 +23,7 @@ public class PetService {
         System.out.println("Digite o id ou nome do abrigo:");
         String idOuNome = new Scanner(System.in).nextLine();
 
-        String uri = "http://localhost:8080/abrigos/" +idOuNome +"/pets";
+        String uri = "http://localhost:8080/abrigos/" + idOuNome +"/pets";
         HttpResponse<String> response = client.dispararRequisicaoGet(uri);
         int statusCode = response.statusCode();
         if (statusCode == 404 || statusCode == 500) {
